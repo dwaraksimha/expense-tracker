@@ -1,0 +1,295 @@
+/* index.css */
+:root {
+  --primary-color: #3b82f6; /* blue-500 */
+  --secondary-color: #10b981; /* emerald-500 */
+  --danger-color: #ef4444; /* red-500 */
+  --background-color: #f8fafc; /* slate-50 */
+  --surface-color: #ffffff;
+  --text-primary: #1e293b; /* slate-800 */
+  --text-secondary: #64748b; /* slate-500 */
+  --border-color: #e2e8f0; /* slate-200 */
+  --font-family: 'Poppins', sans-serif;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --border-radius: 0.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.card {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.summary-item {
+  flex: 1;
+  padding: 1rem;
+  min-width: 120px;
+}
+
+.summary-item h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.summary-item p {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+#income { color: var(--secondary-color); }
+#expense { color: var(--danger-color); }
+#balance { color: var(--primary-color); }
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .content-layout {
+    grid-template-columns: 2fr 3fr;
+  }
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.form-control label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-control input,
+.form-control select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.form-control input:focus,
+.form-control select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn:hover {
+  background-color: #2563eb; /* darker blue */
+}
+
+.transaction-list {
+  list-style-type: none;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.transaction-list li {
+  background-color: #f1f5f9; /* slate-100 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.5rem;
+  border-left: 5px solid;
+}
+
+.transaction-list li.income {
+  border-left-color: var(--secondary-color);
+}
+
+.transaction-list li.expense {
+  border-left-color: var(--danger-color);
+}
+
+.transaction-item-details {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  word-break: break-word;
+}
+
+.transaction-item-details .description {
+  font-weight: 600;
+}
+
+.transaction-item-details .category,
+.transaction-item-details .date {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.transaction-amount {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.transaction-amount.income {
+  color: var(--secondary-color);
+}
+
+.transaction-amount.expense {
+  color: var(--danger-color);
+}
+
+.delete-btn {
+  background: var(--danger-color);
+  border: none;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626; /* darker red */
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.pie-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.pie-chart {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.pie-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #cbd5e1; /* slate-300 */
+}
